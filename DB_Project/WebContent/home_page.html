@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="air-transport.png">
+<meta charset="ISO-8859-1">
+<title>Send Space</title>
+<link rel="stylesheet" type="text/css" href="all_css.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah"
+	rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"
+	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	crossorigin="anonymous"></script>
+<style type="text/css">
+body{
+margin: 0px;
+}
+#logo {
+	float: left;
+	margin: 17px;
+	font-size: 30px;
+	font-family: 'Gloria Hallelujah';
+	font-size: 30px;
+}
+
+.main {
+	background-color: #F9690E;
+}
+
+.navbar {
+	box-shadow: 0px 20px 20px rgba(8, 7, 3, 0.17);
+}
+
+#navbar-ul {
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ECF0F1;
+	margin: 0;
+}
+
+#navbar-li {
+	float: right;
+	font-size: 25px;
+	font-family: 'Shadows Into Light';
+}
+
+#navbar-li a {
+	display: block;
+	color: #000000;
+	text-align: center;
+	padding: 20px 20px;
+	text-decoration: none;
+}
+
+#navbar-li a:HOVER {
+	color: #000000;
+	background-color: #FFFFFF;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+/*SIGN UP FORM CSS*/
+.sign-up-form {
+	display: none;
+	width: 425px;
+	height: 450px;
+	background-color: #ECF0F1;
+	margin:40px 0px 0px 420px;
+	border-radius:25px;
+	padding: 20px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#form li {
+	list-style-type: none;
+	padding: 10px 10px 10px 10px;
+}
+
+.form_label {
+	font-family: 'Shadows Into Light';
+	margin: 10px 30px 30px 20px;
+}
+
+.form_input {
+	border-radius: 20px;
+	text-align: justify;
+	width: 300px;
+	height: 40px;
+}
+
+/* LOGIN FORM */
+.login-in-form {
+	display: none;
+	width: 425px;
+	height: 280px;
+	background-color: #EEEEEE;
+	border-radius: 25px;
+	margin:110px 0px 0px 420px;
+	padding: 20px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#form li {
+	list-style-type: none;
+	padding: 10px 10px 10px 10px;
+}
+
+.form_label {
+	font-family: 'Shadows Into Light';
+	margin: 10px 30px 30px 20px;
+}
+
+.form_input {
+	border-radius: 20px;
+	text-align: justify;
+	width: 300px;
+	height: 40px;
+}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#click_register').click(function() {
+			$('.sign-up-form').show();
+			$('.login-in-form').hide();
+		});
+		$('#click_login').click(function() {
+			$('.login-in-form').show();
+			$('.sign-up-form').hide();
+		});
+	});
+</script>
+</head>
+<body class="main">
+	<div class="navbar">
+		<ul id="navbar-ul">
+			<p id="logo">SEND SPACE</p>
+			<li id="navbar-li"><a id="click_login" class="link" href="#">LOGIN</a></li>
+			<li id="navbar-li"><a id="click_register" class="link" href="#">SIGN-UP</a></li>
+			
+		</ul>
+	</div>
+	<div></div>
+	<div class="sign-up-form">
+		<form id="form" action="register" method="post">
+			<ul>
+				<li><label class="form_label">NAME</label></br> <input
+					class="form_input" type="text" name="name"
+					placeholder="Enter your name"></li>
+				<li><label class="form_label">PASSWORD</label></br> <input
+					class="form_input" type="password" name="password"
+					placeholder="Enter your password" /></li>
+				<li><label class="form_label">PASSPORT NUMBER</label></br> <input
+					class="form_input" type="text" name="passport_number"
+					placeholder="Enter your passport number" /></li>
+				<li><label class="form_label">E-MAIL</label></br> <input
+					name="email" class="form_input" type="text"
+					placeholder="Enter your e-mail id" /></li>
+				<li><input type="submit" value="SUBMIT" /></li>
+			</ul>
+		</form>
+	</div>
+	<div class="login-in-form">
+		<form id="form" action="login" method="post">
+			<ul>
+				<li><label class="form_label">E-MAIL</label></br> <input
+					name="email" class="form_input" type="text"
+					placeholder="Enter your e-mail id" /></li>
+				<li><label class="form_label">PASSWORD</label></br> <input
+					class="form_input" type="password" name="password"
+					placeholder="Enter your password" /></li>
+				<li><input type="submit" value="LOGIN" /></li>
+			</ul>
+		</form>
+	</div>
+
+</body>
+</html>
+
+

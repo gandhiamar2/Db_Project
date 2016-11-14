@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="air-transport.png">
+<meta charset="ISO-8859-1">
+<title>User Selection</title>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"
+	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light"
+	rel="stylesheet">
+
+<style type="text/css">
+body {
+	margin: 0px;
+	background-color: #F9690E;
+}
+
+.navbar {
+	box-shadow: 0px 20px 20px rgba(8, 7, 3, 0.17);
+}
+
+#navbar-ul {
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ECF0F1;
+	margin: 0;
+}
+
+#navbar-li {
+	float: right;
+	font-size: 25px;
+	font-family: 'Shadows Into Light';
+}
+
+#navbar-li a {
+	display: block;
+	text-align: center;
+	padding: 20px 20px;
+	text-decoration: none;
+}
+
+#navbar-li a:HOVER {
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+#cards1 {
+	background-color: #ECF0F1;
+	margin: 0px 90px 0px 212px;
+	width: 300px;
+	height: 40px;
+	float: left;
+}
+
+#cards2 {
+	background-color: #ECF0F1;
+	margin: 0px;
+	width: 300px;
+	height: 40px;
+	float: left;
+}
+
+#cards3 {
+	background-color: #ECF0F1;
+	margin: 0px;
+	width: 300px;
+	height: 40px;
+	float: right;
+	margin: 0px 0px 0px 0px;
+}
+
+/*CARRIER DETAILS FORM*/
+.carrier_details_form {
+	display: none;
+	width: 425px;
+	height: 1075px;
+	background-color: #ECF0F1;
+	border-radius: 25px;
+	padding: 25px;
+	margin: 40px 0px 0px 20px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#form li {
+	list-style-type: none;
+	padding: 10px 10px 10px 10px;
+}
+
+.form_label {
+	font-family: 'Shadows Into Light';
+	margin: 10px 30px 30px 20px;
+}
+
+.form_input {
+	border-radius: 20px;
+	text-align: justify;
+	width: 300px;
+	height: 40px;
+}
+
+/*sender-details-form*/
+.sender_details_form {
+	display: none;
+	width: 320px;
+	height: 410px;
+	background-color: #ECF0F1;
+	border-radius: 25px;
+	padding: 25px;
+	margin: 40px 0px 0px 20px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#form li {
+	list-style-type: none;
+	padding: 10px 10px 10px 10px;
+}
+
+.form_label {
+	font-family: 'Shadows Into Light';
+	margin: 10px 30px 30px 20px;
+}
+
+.form_input {
+	border-radius: 20px;
+	text-align: justify;
+	width: 300px;
+	height: 40px;
+}
+/*response_for_sender*/
+.sender_response_space {
+	display: none;
+	width: 720px;
+	height: 410px;
+	background-color: #ECF0F1;
+	border-radius: 25px;
+	padding: 25px;
+	margin: 40px 20px 0px 20px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.carrier_response_space {
+	display: none;
+	width: 720px;
+	height: 410px;
+	background-color: #ECF0F1;
+	border-radius: 25px;
+	padding: 25px;
+	margin: 40px 20px 0px 20px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$('#cards2').click(function() {
+			$('.sender_details_form').show();
+			$('.sender_response_space').show();
+			$('.carrier_details_form').hide();
+			$('.carrier_response_space').hide();
+		});
+		$('#cards1').click(function() {
+			$('.carrier_response_space').show();
+			$('.carrier_details_form').show();
+			$('.sender_details_form').hide();
+			$('.sender_response_space').hide();
+			$.get('Carrier_log', function(responseText) {
+				$('#carrier_log').html(responseText);
+			});
+		});
+		$('#carrier_update_form').submit(function(){
+			$('Carrier_update',function(responseText))
+			$('#cards2').html(responseTest);
+		});
+
+	});
+</script>
+</head>
+<body>
+
+
+	<div class="navbar">
+		<ul id="navbar-ul">
+			<li id="navbar-li"><a id="cards3" class="link" href="Logout">Logout</a></li>
+			<li id="navbar-li"><a id="cards1" class="link" href="#">Carrier</a></li>
+			<li id="navbar-li"><a id="cards2" class="link" href="#">Sender</a></li>
+
+		</ul>
+	</div>
+	<div>
+		<div class="carrier_details_form">
+			<form id="form" action="carrierDetails" method="post">
+				<ul>
+					<li><label class="form_label">FIRST NAME :</label></br> <input
+						class="form_input" type="text" name="first_name"
+						placeholder="Enter your first name"></li>
+					<li><label class="form_label">LAST NAME :</label></br> <input
+						class="form_input" type="text" name="last_name"
+						placeholder="Enter your last name"></li>
+					<li><label class="form_label">CONTACT NUMBER :</label></br> <input
+						class="form_input" type="text" name="contact_number"
+						placeholder="Enter your contact number"></li>
+					<li><label class="form_label">FLIGHT NAME :</label></br> <input
+						class="form_input" type="text" name="flight_name"
+						placeholder="Enter your flight name"></li>
+					<li><label class="form_label">FLIGHT NUMBER :</label></br> <input
+						class="form_input" type="text" name="flight_number"
+						placeholder="Enter your flight number"></li>
+					<li><label class="form_label">Departing from :</label></br> <input
+						class="form_input" type="text" name="from"
+						placeholder="Enter your departure location"></li>
+					<li><label class="form_label">Flying To :</label></br> <input
+						class="form_input" type="text" name="to"
+						placeholder="Enter your destination "></li>
+					<li><label class="form_label">Departure Time :</label></br> <input
+						class="form_input" type="datetime-local" name="departure_time"
+						placeholder="MM-DD-YYYY-HH-MM"></li>
+					<li><label class="form_label">Arrival Time :</label></br> <input
+						class="form_input" type="datetime-local" name="arrival_time"
+						placeholder="MM-DD-YYYY-HH-MM"></li>
+					<li><label class="form_label">Luggage Weight :</label></br> <input
+						class="form_input" type="text" name="vacancy"
+						placeholder="In Pounds"></li>
+					<li><label class="form_label">Description :</label></br> <textarea
+							rows="8" cols="15" class="form_input" name="description"> </textarea></li>
+					<li><input type="submit" value="SUBMIT" /></li>
+				</ul>
+
+			</form>
+		</div>
+		<div id="carrier_log" class="carrier_response_space"
+			style="float: right"></div>
+	</div>
+	<form action="search" method="post" id="form">
+		<div>
+			<div class="sender_details_form" style="float: left">
+				<ul style="padding: 0px;">
+					<li><label class="form_label">Departing from :</label></br> <input
+						class="form_input" type="text" name="from"
+						placeholder="Enter your departure location"></li>
+					<li><label class="form_label">Flying To :</label></br> <input
+						class="form_input" type="text" name="to"
+						placeholder="Enter your destination "></li>
+					<li><label class="form_label">Departure Time :</label></br> <input
+						class="form_input" type="date" name="departure_time"
+						placeholder="MM-DD-YYYY-HH-MM"></li>
+					<li><label class="form_label">Luggage Weight :</label></br> <input
+						class="form_input" type="text" name="vacancy"
+						placeholder="In Pounds"></li>
+					<li><input id="sender_submit" type="submit" value="SUBMIT" /></li>
+				</ul>
+
+
+			</div>
+		</div>
+		<div id="sender_search" class="sender_response_space"
+			style="float: right"></div>
+		</div>
+
+	</form>
+</body>
+</html>
