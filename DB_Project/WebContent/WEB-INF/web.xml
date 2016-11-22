@@ -16,6 +16,14 @@
     <servlet-name>Carrier_update</servlet-name>
     <url-pattern>/Carrier_update</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>CarrierDetails_Update</servlet-name>
+    <servlet-class>servlets.CarrierDetails_Update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarrierDetails_Update</servlet-name>
+    <url-pattern>/CarrierDetails_Update</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>login</servlet-name>
     <servlet-class>servlets.Login</servlet-class>

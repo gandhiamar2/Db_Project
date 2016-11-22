@@ -26,7 +26,7 @@ public class CarrierDetails extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		try{
 		
-		System.out.println("Incarrierdetails "+session.getAttribute("id").toString());		
+			
 	    String carrier_first_name = request.getParameter("first_name");
 		String carrier_last_name = request.getParameter("last_name");
 		String carrier_phone = request.getParameter("contact_number");

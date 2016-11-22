@@ -37,7 +37,7 @@ public class Carrier_log extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			ResultSetMetaData rms = rs.getMetaData();
 			pw.print("<H1> select the entry to edit </H1>");
-			pw.print("<button id = 'mytest'>clickmeforlert</button>");
+			
 
 			pw.print("<table width=50% border=1>");
 			int total = rms.getColumnCount();

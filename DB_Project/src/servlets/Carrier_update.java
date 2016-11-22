@@ -24,13 +24,15 @@ public class Carrier_update extends HttpServlet {
 
 		HttpSession session = request.getSession(false);	
 		PrintWriter pw = response.getWriter();
+		
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_project", "root", "agilefant");
 			int a = Integer.parseInt(request.getParameter("radio_button"));
 			String email = session.getAttribute("id").toString();
-			System.out.println(email);
+			session.setAttribute("autoid",a);
+			//System.out.println(email);
 			PreparedStatement ps = con.prepareStatement("CALL Db_project.selected_log_carrier(?,?)");
 			ps.setString(1,email);
 			ps.setInt(2, a);
@@ -46,12 +48,12 @@ public class Carrier_update extends HttpServlet {
 				}
 				}
 			}
-System.out.println(s[1]);
+//System.out.println(s[1]);
 			pw.print("<!DOCTYPE html><html><head><meta charset='ISO-8859-1'><title>amar</title></head><body>");
 
 			pw.print("<H1> select the entry to edit </H1>");	
 			pw.print("<div class='carrier_details_form'>");
-			pw.print("<form id='form' action='carrierDetails' method='post'>");
+			pw.print("<form id='form' action='CarrierDetails_Update' method = 'get'>");
 			pw.print("<ul>");
 			pw.print("<li><label class='form_label'>FIRST NAME :</label></br> <input ");
 			pw.print("class='form_input' type='text' name='first_name'");
@@ -84,7 +86,7 @@ System.out.println(s[1]);
 			pw.print("class='form_input' type='text' name='vacancy'");
 			pw.print("value="+s[10]+"></li>");
 			pw.print("<li><label class='form_label'>Description :</label></br> <textarea ");
-			pw.print("rows='8' cols='15' class='form_input' value =" +s[11]+"name='description'> </textarea></li>");
+			pw.print("rows='8' cols='15' class='form_input' name='description'>"+s[11]+" </textarea></li>");
 			pw.print("<li><input type='submit' value='UPDATE'></li>");
 			pw.print("</ul>");
 			pw.print("</form>");
@@ -93,6 +95,7 @@ System.out.println(s[1]);
 		catch (NullPointerException e)
 		{
 			System.out.println("there is no active session ///////carrier_update");
+			response.sendRedirect("home_page.html");
 
 		}	
 

@@ -31,15 +31,15 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-		String error="LOGIN FAILED ! TRY AGAIN";
+		// String error="LOGIN FAILED ! TRY AGAIN";
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_project", "root", "agilefant");
-			PreparedStatement ps = con
-					.prepareStatement("select * from user where email=? and password=?");
+			PreparedStatement ps = con.prepareStatement("select * from user where email=? and password=?");
 			ps.setString(1, email);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
@@ -47,15 +47,20 @@ public class Login extends HttpServlet {
 			status = rs.next();
 
 			if (status) {
-				HttpSession session=request.getSession();  
-		        session.setAttribute("id",email); 
-		       
-		        System.out.println(session.getAttribute("id").toString());        
+				HttpSession session = request.getSession();
+				session.setAttribute("id", email);
+
 				response.sendRedirect("user_selection.html");
-			}else {
-		response.sendRedirect("home_page.html");
-		System.out.println(error);		
-				
+			} else {
+				pw.println("<script type=\"text/javascript\">");
+				pw.println("alert('LOGIN FAILED, TRY AGAIN !!!');");
+				pw.println("</script>");
+				// response.sendRedirect("home_page.html");
+				// Spw.print("kisfgjlksdf Sorry username or password error");
+				RequestDispatcher rd = request.getRequestDispatcher("home_page.html");
+				rd.include(request, response);
+				// System.out.println(error);
+
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 
